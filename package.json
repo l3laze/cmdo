@@ -1,0 +1,19 @@
+{
+  "name": "cmdo",
+  "version": "1.0.0-rc1",
+  "description": "A small CLI parser inspired by https://github.com/node-js-libs/cli. Can also auto-generate a help page in a style similar to `man` or `usage`.",
+  "main": "src/index.js",
+  "repository": "https://github.com/l3laze/cmdo.git",
+  "author": "Tom Shaver <l3l_aze@yahoo.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "standard": "^11.0.1"
+  },
+  "scripts": {
+    "lint": "yarn standard",
+    "test": "node ./tests/successful-test.js -s 'Hello World!' -n 8675309 -b true && node ./tests/error-test.js -batman"
+  },
+  "dependencies": {
+    "ebug": "^1.0.0-rc2"
+  }
+}
