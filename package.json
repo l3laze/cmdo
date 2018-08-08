@@ -7,13 +7,26 @@
   "author": "Tom Shaver <l3l_aze@yahoo.com>",
   "license": "MIT",
   "devDependencies": {
+    "chai": "^4.1.2",
+    "codecov": "^3.0.4",
+    "mocha": "^5.2.0",
+    "nyc": "^12.0.2",
     "standard": "^11.0.1"
-  },
-  "scripts": {
-    "lint": "yarn standard",
-    "test": "node ./tests/successful-test.js -s 'Hello World!' -n 8675309 -b true && node ./tests/error-test.js -batman"
   },
   "dependencies": {
     "ebug": "^1.0.0-rc2"
+  },
+  "nyc": {
+    "sourceMap": true
+  },
+  "scripts": {
+    "lint": "yarn standard",
+    "test": "mocha ./tests/test.js",
+    "nyct": "nyc mocha ./tests/test.js",
+    "htmlcov": "nyc report --reporter=html",
+    "textcov": "nyc report --reporter=text-lcov > coverage.lcov",
+    "coverage": "yarn htmlcov && yarn textcov",
+    "codecov": "codecov",
+    "docs": "node ./node_modules/doccomment/doccomment.js -n cmdo -p '*\\.js'"
   }
 }
