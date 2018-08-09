@@ -1,5 +1,7 @@
 'use strict'
 
+const debug = require ('ebug')('standardizeOpArgs')
+
 function standardizeOpArgs (token) {
   const isEnd = (token === '--')
   const hasOp = (!isEnd && /^(-|--)[a-z]/.test(token))
@@ -7,12 +9,12 @@ function standardizeOpArgs (token) {
 
   const done = isEnd || // You should never eat args after --, kid.
   ((!hasOp && !hasOpArg) || // bare argument
-    (hasOp && !hasOpArg && token.startsWith('--')) // --a
+    (hasOp && !hasOpArg) // --a || -a
   )
 
   let chunks = []
 
-  // console.info(token)
+  debug('isEnd %s\nhasOp %s\nhasOpArg %s\ndone %s', isEnd, hasOp, hasOpArg, done)
 
   if (done) {
     return [token]

@@ -22,7 +22,8 @@
   "scripts": {
     "lint": "yarn standard",
     "test": "mocha ./tests/test.js",
-    "nyct": "nyc mocha ./tests/test.js",
+    "self-test": "DEBUG=* node ./tests/purejs/test.js -name cmdo",
+    "nyct": "nyc mocha ./tests/*.js",
     "htmlcov": "nyc report --reporter=html",
     "textcov": "nyc report --reporter=text-lcov > coverage.lcov",
     "coverage": "yarn htmlcov && yarn textcov",
