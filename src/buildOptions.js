@@ -22,7 +22,7 @@ function buildOptions (options, tokens) {
       val = options[ op.slice(2) ][ 3 ]
     }
 
-    parsed[ op ] = val
+    parsed[ op.slice(2) ] = val
   }
 
   return parsed

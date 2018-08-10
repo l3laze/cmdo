@@ -46,7 +46,7 @@ function standardizeOpArgs (token) {
   }
 
   if (parsed.constructor.name === 'Array' && parsed.length !== '0') {
-    debug('Returning: [ %s ]', parsed)
+    debug('Returning: [ %s ]; type %s', parsed.constructor.name === 'Array' ? parsed.join(', ') : parsed, parsed.constructor.name)
 
     return parsed
   }

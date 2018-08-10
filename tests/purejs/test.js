@@ -2,6 +2,9 @@
 
 const cmdo = require('../../src/index.js')
 const debug = require('ebug')('cmdo-test')
+const pj = require('../../package.json')
+
+console.info('Testing "' + pj.name + '"')
 
 const options = cmdo.parse({
   name: [ 'n', 'What\'s my name?', 'string', 'Hi' ],
@@ -13,3 +16,16 @@ const options = cmdo.parse({
 })
 
 debug(JSON.stringify(options, null, '\t'))
+
+if((JSON.stringify(options) === JSON.stringify({
+  name: pj.name,
+  version: pj.version,
+  aShort: false,
+  longerOne: false,
+  longestOneEver: false,
+  longWithArg: 'No!'
+}))) {
+  console.info('#1: passed')
+} else {
+  console.info('#1: failed')
+}

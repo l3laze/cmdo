@@ -17,12 +17,14 @@ describe('Module cmdo', function moduleDescriptor () {
 
   describe('#parse', function parseDescriptor () {
     it('should parse the command-line options', function parsesCommandlineOptions () {
+      
       const options = cmdo.parse({
         hello: [ 'e', 'Hi', 'string', 'world' ]
       })
-      expect(options).to.equal({
-        hello: 'world'
-      })
+      expect(JSON.stringify(options)).to.equal(JSON.stringify({
+        'hello': 'world'
+      }))
+      expect(options).to.have.property('hello').and.equal('world')
     })
   })
 })

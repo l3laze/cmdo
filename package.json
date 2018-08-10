@@ -21,9 +21,9 @@
   },
   "scripts": {
     "lint": "yarn standard",
-    "test": "node ./node_modules/mocha/bin/_mocha ./tests/test.js -- -- --hello world",
-    "self-test": "DEBUG=* node ./tests/purejs/test.js --name $npm_package_name --version=$npm_package_version -alew=No!",
-    "nyct": "nyc mocha ./tests/*.js",
+    "test": "mocha ./tests/test.js --hello world",
+    "self-test": "node ./tests/purejs/test.js --name $npm_package_name --version=$npm_package_version -alew=No!",
+    "nyct": "nyc $npm_package_scripts_test",
     "htmlcov": "nyc report --reporter=html",
     "textcov": "nyc report --reporter=text-lcov > coverage.lcov",
     "coverage": "yarn htmlcov && yarn textcov",
