@@ -21,7 +21,7 @@
   },
   "scripts": {
     "lint": "yarn standard",
-    "test": "mocha ./tests/test.js",
+    "test": "node ./node_modules/mocha/bin/_mocha ./tests/test.js -- -- --hello world",
     "self-test": "DEBUG=* node ./tests/purejs/test.js --name $npm_package_name --version=$npm_package_version -alew=No!",
     "nyct": "nyc mocha ./tests/*.js",
     "htmlcov": "nyc report --reporter=html",

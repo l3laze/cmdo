@@ -9,7 +9,7 @@ const expect = chai.expect
 describe('Module cmdo', function moduleDescriptor () {
   this.slow(0)
 
-  describe('#init', function parse () {
+  describe('#init', function initDescriptor () {
     it('should be initialized by require\'ing it', function initsOnReq () {
       expect(cmdo).to.have.property('parse')
     })
@@ -17,9 +17,10 @@ describe('Module cmdo', function moduleDescriptor () {
 
   describe('#parse', function parseDescriptor () {
     it('should parse the command-line options', function parsesCommandlineOptions () {
-      expect(cmdo.parse({
+      const options = cmdo.parse({
         hello: [ 'e', 'Hi', 'string', 'world' ]
-      })).to.equal({
+      })
+      expect(options).to.equal({
         hello: 'world'
       })
     })

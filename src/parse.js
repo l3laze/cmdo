@@ -21,7 +21,7 @@ function getCallerFile (position = 2) {
   // stack[0] holds this file
   // stack[1] holds where this function was called
   // stack[2] holds the file we're interested in
-  return stack[position] ? stack[position].getFileName() : undefined
+  return stack[position] ? stack[position].getFileName() : ''
 }
 
 function parse (options) {
