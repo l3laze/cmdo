@@ -17,7 +17,7 @@ const options = cmdo.parse({
 
 debug(JSON.stringify(options, null, '\t'))
 
-if((JSON.stringify(options) === JSON.stringify({
+if ((JSON.stringify(options) === JSON.stringify({
   name: pj.name,
   version: pj.version,
   aShort: false,

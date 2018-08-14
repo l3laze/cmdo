@@ -14,7 +14,7 @@ function buildOptions (options, tokens) {
 
     debug('Building %s', op)
 
-    if (!tokens[ 0 ].startsWith('--') && tokens[ 0 ].charAt(0) !== '-') {
+    if (tokens.length > 0 && !tokens[ 0 ].startsWith('--') && tokens[ 0 ].charAt(0) !== '-') {
       val = tokens.shift()
 
       debug('Got val %s', val)

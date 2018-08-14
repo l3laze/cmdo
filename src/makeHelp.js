@@ -5,7 +5,7 @@ const { format } = require('util')
 function makeHelp (options, name) {
   let helpText = format('  Usage %s [options]\n\n\tFlags\n\tName\t\t  Type\t\t\tDescription\n', name)
 
-  Object.keys(options).forEach(item => {
+  Object.keys(options).forEach((item) => {
     helpText += format(
       '%s | %s\t' +
       (item.length < 12 ? '\t' : '') +

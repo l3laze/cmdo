@@ -66,7 +66,7 @@ function parse (options) {
   debug('Tokens %s', tokens.join(', '))
   debug('allKeys: [ %s ]', allKeys.join(', '))
 
-  tokens = tokens.map(t => {
+  tokens = tokens.map((t) => {
     debug('Got token %s; type %s', t, t.constructor.name)
 
     if (t.startsWith('--')) {

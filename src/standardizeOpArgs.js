@@ -1,6 +1,6 @@
 'use strict'
 
-const debug = require('ebug')('standardizeOpArgs')
+const debug = require('ebug')('cmdo-standardizeOpArgs')
 
 function standardizeOpArgs (token) {
   const isEnd = (token === '--')
@@ -31,7 +31,7 @@ function standardizeOpArgs (token) {
       chunks = chunks[ 0 ]
         .split('')
         .slice(1)
-        .map(t => '-' + t)
+        .map((t) => '-' + t)
 
       chunks.push(parsed)
     }

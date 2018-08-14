@@ -6,6 +6,9 @@
   "repository": "https://github.com/l3laze/cmdo.git",
   "author": "Tom Shaver <l3l_aze@yahoo.com>",
   "license": "MIT",
+  "files": [
+    "src"
+  ],
   "devDependencies": {
     "chai": "^4.1.2",
     "codecov": "^3.0.4",
@@ -21,12 +24,10 @@
   },
   "scripts": {
     "lint": "yarn standard",
-    "test": "mocha ./tests/test.js --hello world",
+    "test": "mocha ./tests/test.js --hello world --bye=world -c",
     "self-test": "node ./tests/purejs/test.js --name $npm_package_name --version=$npm_package_version -alew=No!",
     "nyct": "nyc $npm_package_scripts_test",
-    "htmlcov": "nyc report --reporter=html",
-    "textcov": "nyc report --reporter=text-lcov > coverage.lcov",
-    "coverage": "yarn htmlcov && yarn textcov",
+    "coverage": "nyc report --reporter=html",
     "codecov": "codecov",
     "docs": "node ./node_modules/doccomment/doccomment.js -n cmdo -p '*\\.js'"
   }

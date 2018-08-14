@@ -15,16 +15,36 @@ describe('Module cmdo', function moduleDescriptor () {
     })
   })
 
-  describe('#parse', function parseDescriptor () {
-    it('should parse the command-line options', function parsesCommandlineOptions () {
-      
+  describe('#parse - success', function parseDescriptor () {
+    it('should parse proper command-line options', function parsesCommandlineOptions () {
       const options = cmdo.parse({
-        hello: [ 'e', 'Hi', 'string', 'world' ]
+        hello: [ 'a', 'Hello', 'string', 'World' ],
+        bye: [ 'b', 'Bye', 'string', 'Joker' ],
+        crazy: [ 'c', 'Crazy', 'string', 'me' ]
       })
       expect(JSON.stringify(options)).to.equal(JSON.stringify({
-        'hello': 'world'
+        'hello': 'world',
+        'bye': 'world',
+        'crazy': 'me'
       }))
       expect(options).to.have.property('hello').and.equal('world')
+    })
+  })
+
+  describe('#parse - failure', function parseFailsDescriptor () {
+    it('should fail to parse invalid command-line options', function failsForInvalidOptions () {
+      expect(function expectParseToFail () {
+        try {
+          cmdo.parse({
+            'hello': [ 'e', 'Hi', 'string', 'world' ]
+          })
+        } catch (err) {
+          console.error(err)
+          throw err
+        }
+      }).to.throw()
+
+      // expect(options).to.have.property('undefined').and.equal('world')
     })
   })
 })

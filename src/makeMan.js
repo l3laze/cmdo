@@ -12,7 +12,7 @@ function makeMan (options, name, author, description) {
     this.pj.description
   )
 
-  Object.keys(options).forEach(o => {
+  Object.keys(options).forEach((o) => {
     manText += format(
       '%s | %s\t' + (o.length < 12 ? '\t' : '') +
       `${options[ o ][ 2 ]}\t` +
