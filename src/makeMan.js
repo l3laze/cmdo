@@ -3,13 +3,13 @@
 const { format } = require('util')
 
 function makeMan (options, name, author, description) {
-  let shortEnd = this.pj.description.indexOf('.')
+  let shortEnd = description.indexOf('.')
   let manText = format(
     '\t\t\t\t\t"Man Page"\n\nNAME\n\t%s - %s\n\nSYNOPSIS\n\t%sDESCRIPTION\n\t%s\n\nOPTIONS\n\t',
-    this.pj.name,
-    typeof this.pj.description !== 'undefined' ? description.substring(0, shortEnd !== -1 ? shortEnd + 1 : description.length) : '',
+    name,
+    description !== 'undefined' ? description.substring(0, shortEnd !== -1 ? shortEnd + 1 : description.length) : '',
     format('%s [options]\n\n', name),
-    this.pj.description
+    description
   )
 
   Object.keys(options).forEach((o) => {

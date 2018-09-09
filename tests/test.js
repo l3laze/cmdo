@@ -22,29 +22,52 @@ describe('Module cmdo', function moduleDescriptor () {
         bye: [ 'b', 'Bye', 'string', 'Joker' ],
         crazy: [ 'c', 'Crazy', 'string', 'me' ]
       })
+
       expect(JSON.stringify(options)).to.equal(JSON.stringify({
         'hello': 'world',
         'bye': 'world',
         'crazy': 'me'
       }))
-      expect(options).to.have.property('hello').and.equal('world')
     })
   })
 
   describe('#parse - failure', function parseFailsDescriptor () {
     it('should fail to parse invalid command-line options', function failsForInvalidOptions () {
       expect(function expectParseToFail () {
-        try {
-          cmdo.parse({
-            'hello': [ 'e', 'Hi', 'string', 'world' ]
-          })
-        } catch (err) {
-          console.error(err)
-          throw err
-        }
+        cmdo.parse({
+          'hello': [ 'e', 'Hi', 'string', 'world' ]
+        })
       }).to.throw()
+    })
+  })
 
-      // expect(options).to.have.property('undefined').and.equal('world')
+  describe('makeMan', function makeManDecriptor () {
+    it('should make a man page', function makesManPage () {
+      const pj = require('./../package.json')
+      const man = cmdo.makeMan({
+        hello: [ 'a', 'Hello', 'string', 'World' ],
+        bye: [ 'b', 'Bye', 'string', 'Joker' ],
+        crazy: [ 'c', 'Crazy', 'string', 'me' ]
+      }, pj.name, pj.author, pj.description)
+
+      expect(man.indexOf('SYNOPSIS')).to.not.equal(-1)
+      expect(man.indexOf('DESCRIPTION')).to.not.equal(-1)
+      expect(man.indexOf('OPTIONS')).to.not.equal(-1)
+    })
+  })
+
+  describe('makeHelp', function makeHelpDecriptor () {
+    it('should make a help page', function makesHelpPage () {
+      const pj = require('./../package.json')
+      const help = cmdo.makeHelp({
+        hello: [ 'a', 'Hello', 'string', 'World' ],
+        bye: [ 'b', 'Bye', 'string', 'Joker' ],
+        crazy: [ 'c', 'Crazy', 'string', 'me' ]
+      }, pj.name)
+
+      expect(help.indexOf('Usage')).to.not.equal(-1)
+      expect(help.indexOf('[options]')).to.not.equal(-1)
+      expect(help.indexOf('Flags')).to.not.equal(-1)
     })
   })
 })

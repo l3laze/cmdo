@@ -20,8 +20,6 @@ function makeHelp (options, name) {
     )
   })
 
-  // debug('\n%s', helpText)
-
   return helpText
 }
 
