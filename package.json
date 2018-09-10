@@ -1,6 +1,6 @@
 {
   "name": "cmdo",
-  "version": "1.0.0-rc3",
+  "version": "1.0.0-rc4",
   "description": "A small CLI parser inspired by https://github.com/node-js-libs/cli. Can also auto-generate a help page in a style similar to `man` or `usage`.",
   "main": "src/index.js",
   "repository": "https://github.com/l3laze/cmdo.git",
