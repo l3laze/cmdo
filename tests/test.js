@@ -16,17 +16,19 @@ describe('Module cmdo', function moduleDescriptor () {
   })
 
   describe('#parse - success', function parseDescriptor () {
-    it('should parse proper command-line options', function parsesCommandlineOptions () {
+    it('should parse proper command-line options, and use defaults where no value is given', function parsesCommandlineOptions () {
       const options = cmdo.parse({
         hello: [ 'a', 'Hello', 'string', 'World' ],
         bye: [ 'b', 'Bye', 'string', 'Joker' ],
-        crazy: [ 'c', 'Crazy', 'string', 'me' ]
+        crazy: [ 'c', 'Crazy', 'string', 'you' ],
+        dude: [ 'd', 'Dude', 'string', 'me' ]
       })
 
       expect(JSON.stringify(options)).to.equal(JSON.stringify({
         'hello': 'world',
         'bye': 'world',
-        'crazy': 'me'
+        'crazy': 'you',
+        'dude': 'me'
       }))
     })
   })
@@ -41,10 +43,10 @@ describe('Module cmdo', function moduleDescriptor () {
     })
   })
 
-  describe('makeMan', function makeManDecriptor () {
+  describe('#man', function makeManDecriptor () {
     it('should make a man page', function makesManPage () {
       const pj = require('./../package.json')
-      const man = cmdo.makeMan({
+      const man = cmdo.man({
         hello: [ 'a', 'Hello', 'string', 'World' ],
         bye: [ 'b', 'Bye', 'string', 'Joker' ],
         crazy: [ 'c', 'Crazy', 'string', 'me' ]
@@ -56,10 +58,10 @@ describe('Module cmdo', function moduleDescriptor () {
     })
   })
 
-  describe('makeHelp', function makeHelpDecriptor () {
+  describe('#help', function makeHelpDecriptor () {
     it('should make a help page', function makesHelpPage () {
       const pj = require('./../package.json')
-      const help = cmdo.makeHelp({
+      const help = cmdo.help({
         hello: [ 'a', 'Hello', 'string', 'World' ],
         bye: [ 'b', 'Bye', 'string', 'Joker' ],
         crazy: [ 'c', 'Crazy', 'string', 'me' ]

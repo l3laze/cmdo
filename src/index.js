@@ -6,6 +6,6 @@ const { makeHelp } = require('./makeHelp.js')
 
 module.exports = {
   parse,
-  makeMan,
-  makeHelp
+  man: makeMan,
+  help: makeHelp
 }

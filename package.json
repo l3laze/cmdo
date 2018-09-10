@@ -1,6 +1,6 @@
 {
   "name": "cmdo",
-  "version": "1.0.0-rc2",
+  "version": "1.0.0-rc3",
   "description": "A small CLI parser inspired by https://github.com/node-js-libs/cli. Can also auto-generate a help page in a style similar to `man` or `usage`.",
   "main": "src/index.js",
   "repository": "https://github.com/l3laze/cmdo.git",
@@ -25,7 +25,6 @@
   "scripts": {
     "lint": "yarn standard",
     "test": "mocha ./tests/test.js --hello world --bye=world -c",
-    "self-test": "node ./tests/purejs/test.js --name $npm_package_name --version=$npm_package_version -alew=No!",
     "nyct": "nyc $npm_package_scripts_test",
     "coverage": "nyc report --reporter=html",
     "codecov": "codecov",

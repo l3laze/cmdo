@@ -81,20 +81,20 @@ function parse (options) {
       debug('t %s', t)
     }
 
-    /*
-    if ((t.startsWith('--') && !allKeys.includes('' + t.slice(2))) ||
-        (t.charAt() === '-' && !allKeys.includes('' + t.slice(1)))
+    // console.info(t, t.startsWith('--'), allKeys.includes(t.slice(2)))
+
+    if ((t.startsWith('--') && allKeys.includes(t.slice(2)) === false) &&
+        (t.charAt(0) === '-' && allKeys.includes(t.slice(1)) === false)
     ) {
       throw new Error(`Unknown option ${t}`)
     } else {
       debug('Found option %s', t.slice(2))
       if (t.startsWith('--') && typeof shortKeyMap[ t.slice(2) ] !== 'undefined') {
-        tokens[ i ] = shortKeyMap[ t.slice(2) ]
+        t = shortKeyMap[ t.slice(2) ]
       } else if (t.charAt(0) === '-' && typeof longKeyMap[ t.slice(1) ] !== 'undefined') {
-        tokens[ i ] = longKeyMap[ t.slice(1) ]
+        t = shortKeyMap[longKeyMap[ t.slice(1) ]]
       }
     }
-    */
 
     return t
   })

@@ -25,6 +25,15 @@ function buildOptions (options, tokens) {
     parsed[ op.slice(2) ] = val
   }
 
+  for (let k of Object.keys(options)) {
+    if (typeof parsed[ k ] === 'undefined') {
+      parsed[ k ] = options[ k ][ 3 ]
+    }
+  }
+
+  // console.info('parsed:', parsed)
+  // console.info('options: ', options)
+
   return parsed
 }
 
