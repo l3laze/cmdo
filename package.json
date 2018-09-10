@@ -11,13 +11,13 @@
   ],
   "devDependencies": {
     "chai": "^4.1.2",
-    "codecov": "^3.0.4",
+    "codecov": "^3.1.0",
     "mocha": "^5.2.0",
-    "nyc": "^12.0.2",
-    "standard": "^11.0.1"
+    "nyc": "^13.0.1",
+    "standard": "^12.0.1"
   },
   "dependencies": {
-    "ebug": "^1.0.0-rc2"
+    "ebug": "^1.0.0-rc12"
   },
   "nyc": {
     "sourceMap": true
